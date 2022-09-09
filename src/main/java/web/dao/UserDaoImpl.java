@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
     }
     @Override
     public User getById(int id){
-        return users.get(id);
+        return users.stream().filter(user -> user.getId()==id).findAny().orElse(null);
     }
     @Override
     public void save(User user){
@@ -34,7 +34,9 @@ public class UserDaoImpl implements UserDao {
     }
     @Override
     public void update(User user){
-        users.set(user.getId(), user);
+        User userUpdate = users.stream().filter(useru -> useru.getId()==user.getId()).findAny().orElse(null);
+        userUpdate.setName(user.getName());
+        userUpdate.setAge(user.getAge());
     }
     @Override
     public void delete(User user) {
