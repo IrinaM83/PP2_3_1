@@ -23,4 +23,21 @@ public class UserDaoImpl implements UserDao {
     public List<User> printUsers() {
                 return users;
     }
+    @Override
+    public User getById(int id){
+        return users.get(id);
+    }
+    @Override
+    public void save(User user){
+        user.setId(++ID_USER);
+        users.add(user);
+    }
+    @Override
+    public void update(User user){
+        users.set(user.getId(), user);
+    }
+    @Override
+    public void delete(User user) {
+        users.removeIf(u -> u.getId() == user.getId());
+    }
 }
