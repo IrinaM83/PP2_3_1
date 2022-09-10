@@ -25,20 +25,24 @@ public class UserServiceImpl implements UserService {
     public List<User> printUsers() {
         return userDao.printUsers();
     }
+
     @Override
-    public User getById(int id){
-       return userDao.getById(id);
+    public User getById(int id) {
+        return userDao.getById(id);
     }
+
     @Override
-    public void save(User user){
+    public void save(User user) {
         userDao.save(user);
     }
+
     @Override
-    public void update(User user){
+    public void update(User user) {
         userDao.update(user);
     }
+
     @Override
-    public void delete(User user){
+    public void delete(User user) {
         userDao.delete(user);
     }
 }
